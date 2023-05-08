@@ -19,4 +19,4 @@ jobs:
     if: github.event_name == "pull_request"
     steps:
       - name: launching of super-linter
-        uses: github/super-linter@v5
+        uses: github/super-linter@v4
