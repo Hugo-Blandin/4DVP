@@ -8,15 +8,15 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - name: launching of semgrep
-                uses: returntocorp/semgrep-action@v1
+            uses: returntocorp/semgrep-action@v1
     docker-analysis:
         runs-on: ubuntu-latest
         steps:
             - name: launching of hadolint
-                uses: hadolint/hadolint@v2
+            uses: hadolint/hadolint@v2
     super-linter:
         runs-on: ubuntu-latest
         if: github.event_name == "pull_request"
         steps:
             - name: launching of super-linter
-                uses: github/super-linter@v5
+            uses: github/super-linter@v5
