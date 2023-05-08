@@ -4,8 +4,8 @@ on:
     tags:
       - "*.*.*"
 env:
-  YOUR_USERNAME: YourUsername # the name of my account on the docker hub
-  YOUR_REPOSITORY: 4DVP # the name of my repository on the docker hub
+  YOUR_USERNAME: ecoleit # the name of my account on the docker hub
+  YOUR_REPOSITORY: 4dvp-repository # the name of my repository on the docker hub
 jobs:
   build:
     runs-on: ubuntu-latest
