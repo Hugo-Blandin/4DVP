@@ -5,18 +5,18 @@ on:
   workflow_dispatch:
 jobs:
   static_analysis:
-      runs-on: ubuntu-latest
-      steps:
-        - name: launching of semgrep
-          uses: returntocorp/semgrep-action@v1
+    runs-on: ubuntu-latest
+    steps:
+      - name: launching of semgrep
+        uses: returntocorp/semgrep-action@v1
   docker_analysis:
-      runs-on: ubuntu-latest
-      steps:
-        - name: launching of hadolint
-          uses: hadolint/hadolint@v2
+    runs-on: ubuntu-latest
+    steps:
+      - name: launching of hadolint
+        uses: hadolint/hadolint@v2
   super_linter:
-      runs-on: ubuntu-latest
-      if: github.event_name == "pull_request"
-      steps:
-        - name: launching of super-linter
-          uses: github/super-linter@v5
+    runs-on: ubuntu-latest
+    if: github.event_name == "pull_request"
+    steps:
+      - name: launching of super-linter
+        uses: github/super-linter@v5
