@@ -12,31 +12,30 @@ jobs:
     steps:
       #- name: Checkout code
       #  uses: actions/checkout@v3
+      - name: Setup go
+        uses: actions/setup-go@v3
+        with:
+          go-version: "1.17"
 
-        - name: Setup go
-          uses: actions/setup-go@v3
-          with:
-            go-version: "1.17"
-
-        - name: Installation of goreleaser
-          run: curl -sfL https://install.goreleaser.com/github.com/goreleaser/goreleaser.sh | sh -s -- -b $(go env GOPATH)/bin
-        
-        - name: Build and release
-          uses: goreleaser/goreleaser-action@v3
-          with:
-            version: ${{ github.ref }}
-            args: release --rm-dist
-        
-        - name: Login on dockerhub
-          uses: docker/login-action@v3
-          with:
-            username: ${{ env.YOUR_USERNAME }}
-            password: ${{ secrets.DOCKER_PASSWORD }}
-        
-        - name: Build a dockerImage and push on dockerHub
-          uses: docker/build-push-action@v3
-          with:
-            context: .
-            file: Dockerfile
-            push: true
-            tags: ${{ env.YOUR_USERNAME }}/${{ env.YOUR_REPOSITORY }}:${{ github.ref }}
+      - name: Installation of goreleaser
+        run: curl -sfL https://install.goreleaser.com/github.com/goreleaser/goreleaser.sh | sh -s -- -b $(go env GOPATH)/bin
+      
+      - name: Build and release
+        uses: goreleaser/goreleaser-action@v3
+        with:
+          version: ${{ github.ref }}
+          args: release --rm-dist
+      
+      - name: Login on dockerhub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ env.YOUR_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+      
+      - name: Build a dockerImage and push on dockerHub
+        uses: docker/build-push-action@v3
+        with:
+          context: .
+          file: Dockerfile
+          push: true
+          tags: ${{ env.YOUR_USERNAME }}/${{ env.YOUR_REPOSITORY }}:${{ github.ref }}
