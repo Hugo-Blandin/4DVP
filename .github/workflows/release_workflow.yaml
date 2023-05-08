@@ -1,6 +1,6 @@
 name: Release workflow
 on:
-  create:
+  push:
     tags:
       - "*.*.*"
 env:
