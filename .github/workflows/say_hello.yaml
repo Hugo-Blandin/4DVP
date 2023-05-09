@@ -6,4 +6,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Say Hello
-        run: echo "Hello, world! ok"
+        run: echo "Hello, world! ok2"
