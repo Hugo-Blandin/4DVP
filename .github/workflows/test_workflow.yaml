@@ -4,9 +4,9 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
-      strategy:
-        matrix:
-          version: ["1.17", "1.18", "1.19"]
+    strategy:
+      matrix:
+        version: ["1.17", "1.18", "1.19"]
     steps:
       - name: Setup go ${{ matrix.version }}
         uses: actions/setup-go@v3
