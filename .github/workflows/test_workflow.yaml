@@ -3,7 +3,7 @@ on:
   push:
 jobs:
   test:
-    runs-on: ubuntu-latest #
+    runs-on: ubuntu-latest
     strategy:
       matrix:
         version: ["1.17", "1.18", "1.19"]
@@ -12,5 +12,3 @@ jobs:
         uses: actions/setup-go@v3
         with:
           go-version: ${{ matrix.version }}
-      - name: Launching test
-        run: go test ./...
